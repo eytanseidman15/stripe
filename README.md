@@ -2,13 +2,17 @@ This project demonstrates the Stripe PaymentIntents API and how to use it within
 
 ## Getting Started
 
-You need to do three things in order to get this program to work
+You need to do four things in order to get this program to work
 
 First, from a command line you need to clone this project and it will create a folder called stripe
 
 ```git clone https://github.com/eytanseidman15/stripe.git```
 
-Next, you need to install the depencies by doing the following from a command line:
+Second, once you have cloned this repo you need to navigate to the directory that it has created called stripe. On a Mac that would be the following command
+
+```cd stripe```
+
+Next, you need to install the dependencies by executing the following from a command line:
 
 ```npm install```
 
