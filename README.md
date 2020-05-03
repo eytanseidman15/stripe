@@ -25,4 +25,5 @@ Once you have the program up and running on [http://localhost:3000](http://local
 This application is build with a Next.js server, React frontend and Stripe API. To learn more about the technologies used to create this take a look at the following resouces:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Stripe Payment Intents](https://stripe.com/docs/payments/accept-a-payment) - learn about how to use Stripe PaymentIntents.
+- [React JS](https://reactjs.org/tutorial/tutorial.html) - learn about ReactJS
+- [Stripe PaymentIntents](https://stripe.com/docs/payments/accept-a-payment) - learn about how to use Stripe PaymentIntents.
