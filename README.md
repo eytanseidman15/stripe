@@ -1,4 +1,4 @@
-This project demonstrates the Stripe PaymentIntents API and how to use it within a web application
+This project demonstrates the Stripe PaymentIntents API and how to use it within a web application.
 
 ## Getting Started
 
@@ -22,8 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Once you have the program up and running on [http://localhost:3000](http://localhost:3000) please go to the [Stripe Payment Intents](https://stripe.com/docs/payments/accept-a-payment) documentation and look at section for test cases to execute.
 
 ## Learn More
-
-This application is build with a Next.js server, React frontend and Stripe API. To learn more about the technologies used to craete this take a look at the following resouces:
+This application is build with a Next.js server, React frontend and Stripe API. To learn more about the technologies used to create this take a look at the following resouces:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Stripe Payment Intents](https://stripe.com/docs/payments/accept-a-payment) - learn about how to use Stripe Payment Intents
+- [Stripe Payment Intents](https://stripe.com/docs/payments/accept-a-payment) - learn about how to use Stripe PaymentIntents.
