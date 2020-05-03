@@ -19,7 +19,7 @@ Finally, run the program with the following command:
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the program
 
 ## Running through the test cases
-Once you have the program up and running on [http://localhost:3000](http://localhost:3000) please go to the Stripe Payment Intents] (https://stripe.com/docs/payments/accept-a-payment) documentation and look at section for test cases to execute.
+Once you have the program up and running on [http://localhost:3000](http://localhost:3000) please go to the [Stripe Payment Intents] (https://stripe.com/docs/payments/accept-a-payment) documentation and look at section for test cases to execute.
 
 ## Learn More
 
