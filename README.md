@@ -18,7 +18,7 @@ Next, you need to install the dependencies by executing the following from a com
 
 You are now ready to set up the webhook to listen for events and see what is happening on the Stripe server side. After running the command you should see the Webhook state that it is listening for events
 
-```node webhook.js```
+```node ./pages/api/webhook.js```
 
 In a new MacOS terminal window you need to configure your environment variables with your Stripe Public Key and Stripe Secret Key
 
