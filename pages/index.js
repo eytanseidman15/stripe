@@ -8,7 +8,7 @@ import CheckoutForm from "../components/CheckoutForm";
 const stripePromise = loadStripe("pk_test_Zbpe70vVlgGSEaFp88heGMIA00CK1LconZ");
 
 export const getServerSideProps = async ctx => {
-  const stripe = new Stripe("sk_test_59VbsopwCzUiG4deZ0qRfKxH00gilYSXDL");
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
   let paymentIntent;
 
