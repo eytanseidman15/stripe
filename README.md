@@ -2,7 +2,7 @@ This project creates a fictious site that sells Masks using Stripe Payment Inten
 
 ## Running the program
 
-You need to do six things in order to get this program to work
+You need to do four things in order to get the application to load
 
 First, from a command line you need to clone this project and it will create a folder called stripe
 
@@ -12,13 +12,9 @@ Second, once you have cloned this repo you need to navigate to the directory tha
 
 ```cd stripe```
 
-Next, you need to install the dependencies by executing the following from a command line:
+Third, you need to install the dependencies by executing the following from a command line:
 
 ```npm install```
-
-Fifth, in a new MacOS terminal window but within the same directory where your program files reside you need to configure your environment variables with your Stripe Public Key and Stripe Secret Key
-
-```export STRIPE_SECRET_KEY=sk_test_...your...key```
 
 Finally, in that same window as the step above run the program with the following command:
 
@@ -30,6 +26,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can set up a customer log that will record all orders for you. To do so you will need to forward events to a webhook - that requires the [Stripe CLI] (https://stripe.com/docs/stripe-cli). You will need a new terminal window for *each* of the next two commands but execute them within the same directory where you installed the files.
 
 ```node ./pages/api/webhook.js```
+
 ```stripe listen --forward-to localhost:4040/webhook```
 
 

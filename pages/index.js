@@ -8,7 +8,7 @@ import CheckoutForm from "../components/CheckoutForm";
 const stripePromise = loadStripe("pk_test_Zbpe70vVlgGSEaFp88heGMIA00CK1LconZ");
 
 export const getServerSideProps = async ctx => {
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  const stripe = new Stripe("sk_test_59VbsopwCzUiG4deZ0qRfKxH00gilYSXDL");
 
   let paymentIntent;
 
@@ -25,10 +25,9 @@ export const getServerSideProps = async ctx => {
   }
 
   paymentIntent = await stripe.paymentIntents.create({
-    amount: 1099,
+    amount: 1000,
     currency: 'usd',
-    description: '2nd fill of Xhance 93 mcg/spray for patient',
-    receipt_email: 'eytans@gmail.com',
+    description: 'One universal size mask!',
     metadata: {integration_check: 'accept_a_payment'},
   });
 
