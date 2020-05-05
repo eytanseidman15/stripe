@@ -7,15 +7,11 @@ const CheckoutForm = ({ paymentIntent }) => {
   //bunch of variables for maintaining state, data and styles
   const stripe = useStripe();
   const elements = useElements();
+  const [email, setEmail] = useState('');
   const [metadata, setMetadata] = useState(null);
   const [error, setError] = useState(null);
   const [succeeded, setSucceeded] = useState(false);
   const [processing, setProcessing] = useState(false);
-
-  const btn = {
-    fontSize: '14px',
-    color: 'blue'
-  }  
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -28,10 +24,11 @@ const CheckoutForm = ({ paymentIntent }) => {
     }
 
     const result = await stripe.confirmCardPayment(paymentIntent.client_secret, {
+      receipt_email: email,
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: 'Eytan Seidman',
+          name: 'N/A',
         },
       }
     });
@@ -67,11 +64,22 @@ const CheckoutForm = ({ paymentIntent }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h4> Welcome Back! Please purchase your refill for $10.99!</h4>
+      <h1>Mask Depot</h1> 
+      <h4>A mask can help slow the spread of Covid-19 so we all benefit!  We are selling high quality, designer, re-usable masks for just $10!</h4>
       
+      <h4>Please enter your Email address</h4>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Enter email address"
+      />
+
+      <h4>Please enter credit card information</h4>
       <div><CardElement /></div>
 
-      <button style={btn} type="submit" disabled={processing || !stripe}>
+      <h4>Please hit confirm order once you are done</h4>
+      <button type="submit" disabled={processing || !stripe}>
         {processing ? "Processing..." : "Confirm Order"}
       </button>
       
