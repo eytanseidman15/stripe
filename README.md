@@ -19,6 +19,7 @@ Third, you need to install the dependencies by executing the following from a co
 Fourth, you need to configure next.config.js with your Stripe Public and Secret Keys. Please use your test keys for this. Those can be found in the [Dashboard](https://dashboard.stripe.com/test/apikeys). You need to change these two lines in next.config.js
 
  ```STRIPE_PUBLISHABLE_KEY: 'pk_test_...',  // User should set this```
+ 
  ```STRIPE_SECRET_KEY: 'sk_test_...',  // User should set this```
 
 Finally, in that same window as the step above run the program with the following command:
