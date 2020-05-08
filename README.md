@@ -42,7 +42,7 @@ Once you have the program up and running on [http://localhost:3000](http://local
 In the terminal window running the webhook you will see a log of all the events created on the server side
 
 ## Learn More
-This application is build with a Next.js server, React frontend and Stripe API. To learn more about the technologies used to create this take a look at the following resouces:
+This application is built with a Next.js server, React frontend and the Stripe API. It requires the Stripe CLI. To learn more about the technologies used to create this take a look at the following resouces:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [React JS](https://reactjs.org/tutorial/tutorial.html) - learn about ReactJS
