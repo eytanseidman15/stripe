@@ -1,13 +1,18 @@
-// This example uses Express to receive webhooks
+// This uses Express to receive webhooks
 const app = require('express')();
 const port = 4040
+
+//Setup the app to listen on that port
+app.listen(port, () => console.log(`Listening at http://localhost:${port}`));
 
 // Use body-parser to retrieve the raw body as a buffer
 const bodyParser = require('body-parser');
 
-//Setup the app to listen on that port
-app.listen(port, () => console.log(`Listening to Stripe server events at http://localhost:${port}`))
-console.log("The following orders need to be filled");
+//For printing dates
+const dateformat = require('dateformat');
+
+//Give the user instructions
+console.log("The following orders need to be filled:");
 
 // Match the raw body to content type application/json
 app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, response) => {
@@ -19,6 +24,10 @@ app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, respo
     response.status(400).send(`Webhook Error: ${err.message}`);
   }
 
+  //Setup variables for printing date nicely
+  let now = new Date();
+  const formattedDate = dateformat(now,'fullDate')
+  
   // Handle the event
   switch (event.type) {
     case 'payment_intent.created':
@@ -34,9 +43,10 @@ app.post('/webhook', bodyParser.raw({type: 'application/json'}), (request, respo
       //console.log("✅ payment method provided", event.id);
       break;
     case 'charge.succeeded':
+      
+      //Log the charge
       const chargeSuccess = event.data.object;
-      console.log("💵 Charge was successful:", chargeSuccess.customer.name, " paid ", (chargeSuccess.amount/100), " for ", chargeSuccess.description);
-      console.log("-------------------------------------");
+      console.log("💵 Customer Details:", chargeSuccess.receipt_email, "with last 4 of:", chargeSuccess.payment_method_details.card.last4, " paid $",(chargeSuccess.amount/100), " for ", chargeSuccess.description, "on", formattedDate);
       break;
     // ... handle other event types
     default:

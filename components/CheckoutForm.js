@@ -4,9 +4,14 @@ import { destroyCookie } from "nookies";
 
 const CheckoutForm = ({ paymentIntent }) => {
   
-  //bunch of variables for maintaining state, data and styles
+  //bunch of variables for maintaining state, data, customer information and styles
   const stripe = useStripe();
   const elements = useElements();
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
   const [email, setEmail] = useState('');
   const [metadata, setMetadata] = useState(null);
   const [error, setError] = useState(null);
@@ -28,7 +33,13 @@ const CheckoutForm = ({ paymentIntent }) => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: 'N/A',
+          name: name,
+          address: {
+            line1: address,
+            city: city,
+            state: state,
+            postal_code: zip
+          }
         },
       }
     });
@@ -45,42 +56,91 @@ const CheckoutForm = ({ paymentIntent }) => {
       setSucceeded(true);
       setProcessing(false);
       setMetadata(result.paymentIntent);
-      // There's a risk of the customer closing the window before callback
-      // execution. Set up a webhook or plugin to listen for the
-      // payment_intent.succeeded event that handles any business critical
-      // post-payment actions.
+      
       }
     }
 
   if (succeeded) 
     return (
       <div>
-        <h4>Your payment succeeded! Thank you for your order</h4>
-        <p>View PaymentIntent response:</p>
-        <code>{JSON.stringify(metadata,null,2)}</code>
+        <h4>Your payment succeeded! Thank you for your order!
+        Please refresh your browswer if you would like to place another order</h4>
+        Your mask should arrive within 3 to 5 days. 
       </div>
     );
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{"maxWidth": "600px"}} onSubmit={handleSubmit}>
       <h1>Mask Depot</h1> 
-      <h4>A mask can help slow the spread of Covid-19 so we all benefit!  We are selling high quality, designer, re-usable masks for just $10!</h4>
+      A mask can help slow the spread of Covid-19 so we all benefit!  
+      We are selling high quality, designer, re-usable masks for just $10 each!
       
-      <h4>Please enter your Email address</h4>
+      <h4>Please enter your shipping and billing information </h4>
+      <p>
+      <label>Name</label>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Andrew Cuomo"
+      />
+      </p>
+
+      <label>Address</label>
+      <input
+        type="text"
+        value={address}
+        onChange={(e) => setAddress(e.target.value)}
+        placeholder="138 Eagle Street"
+      />
+
+      <p>
+      <label>City</label>
+      <input
+        type="text"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        placeholder="Albany"
+      />
+      </p>
+
+       <p>
+      <label>State</label>
+      <input
+        type="text"
+        value={state}
+        onChange={(e) => setState(e.target.value)}
+        placeholder="NY"
+      />
+      </p>
+
+       <p>
+      <label>Zip Code</label>
+      <input
+        type="text"
+        value={zip}
+        onChange={(e) => setZip(e.target.value)}
+        placeholder="12202"
+      />
+      </p>
+
+       <p>
+      <label>Email Address</label>
       <input
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="Enter email address"
       />
+      </p>
 
       <h4>Please enter credit card information</h4>
       <div><CardElement /></div>
 
-      <h4>Please hit confirm order once you are done</h4>
+      <h4>Please press the  complete purhcase button </h4>
       <button type="submit" disabled={processing || !stripe}>
-        {processing ? "Processing..." : "Confirm Order"}
+        {processing ? "Processing..." : "Complete Purchase: $10"}
       </button>
       
       <div />
