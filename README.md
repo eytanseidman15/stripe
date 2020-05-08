@@ -2,7 +2,7 @@ This project creates a fictious site that sells Masks using Stripe Payment Inten
 
 ## Running the program
 
-You need to do four things in order to get the application to load
+You need to do five things in order to get the application to load
 
 First, from a command line you need to clone this project and it will create a folder called stripe
 
@@ -16,6 +16,11 @@ Third, you need to install the dependencies by executing the following from a co
 
 ```npm install```
 
+Fourth, you need to configure next.config.js with your Stripe Public and Secret Keys. Please use your test keys for this. Those can be found in the [Dashboard](https://dashboard.stripe.com/test/apikeys). You need to change these two lines in next.config.js
+
+ ```STRIPE_PUBLISHABLE_KEY: 'pk_test_...',  // User should set this```
+ ```STRIPE_SECRET_KEY: 'sk_test_...',  // User should set this```
+
 Finally, in that same window as the step above run the program with the following command:
 
 ```npm run dev```
@@ -23,7 +28,7 @@ Finally, in that same window as the step above run the program with the followin
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the program
 
 ## A customer log of successful orders
-You can set up a customer log that will record all orders for you. To do so you will need to forward events to a webhook - that requires the [Stripe CLI] (https://stripe.com/docs/stripe-cli). You will need a new terminal window for *each* of the next two commands but execute them within the same directory where you installed the files.
+You can set up a customer log that will record all orders for you. To do so you will need to forward events to a webhook - that requires the [Stripe CLI] (https://stripe.com/docs/stripe-cli). You will need a new terminal window for *each* of the next two commands but execute them within the same directory where you installed the files. Note, please run the node app *before* forwarding the events.
 
 ```node ./pages/api/webhook.js```
 
