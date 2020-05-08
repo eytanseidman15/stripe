@@ -2,7 +2,7 @@
 
 module.exports = {
   env: {
-    STRIPE_PUBLISHABLE_KEY: 'pk_test_YOUR_PUBLIC_KEY',
-    STRIPE_SECRET_KEY: 'sk_test_YOUR_SECRET_KEY,
+    STRIPE_PUBLISHABLE_KEY: 'pk_test_Zbpe70vVlgGSEaFp88heGMIA00CK1LconZ',
+    STRIPE_SECRET_KEY: 'sk_test_59VbsopwCzUiG4deZ0qRfKxH00gilYSXDL',
   },
 }
