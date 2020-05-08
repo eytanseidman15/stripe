@@ -29,7 +29,7 @@ Finally, in that same window as the step above run the program with the followin
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the program
 
 ## A customer log of successful orders
-You can set up a customer log that will record all orders for you. To do so you will need to forward events to a webhook - that requires the [Stripe CLI] (https://stripe.com/docs/stripe-cli). You will need a new terminal window for *each* of the next two commands but execute them within the same directory where you installed the files. Note, please run the node app *before* forwarding the events.
+Please set up the customer log that will record all orders for you. To do so you will need to forward events to a webhook - that requires the [Stripe CLI](https://stripe.com/docs/stripe-cli). You will need a new terminal window for *each* of the next two commands but execute them within the same directory where you installed the files. Note, please run the node app *before* forwarding the events.
 
 ```node ./pages/api/webhook.js```
 
